@@ -4,17 +4,48 @@ import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from '@google/ge
 /**************************************************************************
  * Type definitions
  **************************************************************************/
+
+/**
+ * Model parameters to be passed to `initModel` function.
+ */
 export interface ModelParams {
+  /**
+   * The name of the model to be used.
+   */
   modelName:string;
+  /**
+   * The API key to be used.
+   */
   apiKey:string;
+  /**
+   * The temperature to be used for generation.
+   */
   temperature?:number;
+  /**
+   * The topK to be used for generation.
+   */
   topK?:number;
+  /**
+   * The topP to be used for generation.
+   */
   topP?:number;
+  /**
+   * The maximum number of tokens to be generated.
+   */
   maxOutputTokens?:number;
+  /**
+   * The stop sequences to be used for generation.
+   */
   stopSequences?:string[];
+  /**
+   * The safety settings to be used for generation.
+   */
   safetySettings?:SafetySettings;
 }
 
+/**
+ * Safety settings to be passed to `initModel` function.
+ */
 export interface SafetySettings {
   [SafetySettingHarmCategory.HARASSMENT]?:SafetySettingLevel;
   [SafetySettingHarmCategory.HATE_SPEECH]?:SafetySettingLevel;
@@ -23,6 +54,9 @@ export interface SafetySettings {
   [SafetySettingHarmCategory.UNSPECIFIED]?:SafetySettingLevel;
 }
 
+/**
+ * Safety setting level to be passed to `initModel` function.
+ */
 export enum SafetySettingLevel{
   NONE = "NONE",
   ONLY_HIGH = "ONLY_HIGH",
@@ -31,6 +65,9 @@ export enum SafetySettingLevel{
   UNSPECIFIED = "UNSPECIFIED"
 }
 
+/**
+ * Harm category to be passed to `initModel` function.
+ */
 export enum SafetySettingHarmCategory{
   HARASSMENT = "HARASSMENT",
   HATE_SPEECH = "HATE_SPEECH",
@@ -39,31 +76,73 @@ export enum SafetySettingHarmCategory{
   UNSPECIFIED = "UNSPECIFIED"
 }
 
+/**
+ * A chat history item to be passed to `initChat` function.
+ */
 export interface ChatHistoryItem {
+  /**
+   * Whether the message is from the user or the model.
+   */
   isUser:boolean;
+  /**
+   * The text of the message.
+   */
   text?:string;
+  /**
+   * List of images to be given to the model.
+   */
   images?:GenerativeContentBlob[]
 }
 
+/**
+ * A chat history content part to be passed to `initChat` function.
+ */
 export interface ModelChatHistoryPart{
+  /**
+   * The type of the part.
+   */
   type:string;
+  /**
+   * The content of the part.
+   */
   content:string;
 }
 
+/**
+ * A chat history item to be passed to `initChat` function.
+ */
 export interface ModelChatHistoryItem {
+  /**
+   * Whether the message is from the user or the model.
+   */
   isUser:boolean;
+  /**
+   * The parts of the message.
+   */
   parts:ModelChatHistoryPart[];
 }
 
+/**
+ * Options to be passed to `sendMessage` and `sendChatMessage` functions.
+ */
 export interface SendMessageOptions {
+  /**
+   * List of images to be given to the model.
+   */
   images?:GenerativeContentBlob[],
   onResponseChunk?: (responseTextChunk:string) => void
 }
 
+/**
+ * Options to be passed to `countTokens` function.
+ */
 export interface CountTokensOptions {
   images?:GenerativeContentBlob[]
 }
 
+/**
+ * Options to be passed to `countChatTokens` function.
+ */
 export interface CountChatTokensOptions {
   inputText?:string,
   images?:GenerativeContentBlob[]
