@@ -2,5 +2,6 @@ This repo contains the web implementation of the [GeminiX abstraction layer](htt
 
 It is written in Typescript and wraps the [Gemini SDK for Node.js](https://ai.google.dev/tutorials/node_quickstart) to provide a client-side web implementation.
 
-It is included by the [Cordova GeminiX plugin](https://github.com/dpa99c/cordova-plugin-gemini-x), [Capacitor GeminiX plugin](https://github.com/dpa99c/capacitor-plugin-gemini-x), [React Native GeminiX module](https://github.com/dpa99c/react-native-gemini-x) and [Flutter GeminiX module](https://github.com/dpa99c/flutter-gemini-x) as a Git submodule.
-
+It is included as a Git submodule by:
+- [Capacitor GeminiX plugin](https://github.com/dpa99c/capacitor-plugin-gemini-x) - coming soon
+- [Flutter GeminiX module](https://github.com/dpa99c/flutter-gemini-x)  - coming soon
