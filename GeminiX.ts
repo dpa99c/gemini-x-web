@@ -1,8 +1,8 @@
 import type { GenerativeModel, SafetySetting, StartChatParams, InlineDataPart, InputContent, Part, ChatSession, Content } from '@google/generative-ai';
 import { GoogleGenerativeAI, HarmCategory, HarmBlockThreshold } from '@google/generative-ai';
 
-import {SafetySettingLevel, SafetySettingHarmCategory} from './GeminiX.d';
-import type { ChatHistoryItem, ModelChatHistoryItem, ModelChatHistoryPart, ModelParams, CountChatTokensOptions, CountTokensOptions, SendMessageOptions} from './GeminiX.d';
+import {SafetySettingLevel, SafetySettingHarmCategory} from './GeminiXTypes';
+import type { ChatHistoryItem, ModelChatHistoryItem, ModelChatHistoryPart, ModelParams, CountChatTokensOptions, CountTokensOptions, SendMessageOptions} from './GeminiXTypes';
 
 
 export class GeminiX  {
